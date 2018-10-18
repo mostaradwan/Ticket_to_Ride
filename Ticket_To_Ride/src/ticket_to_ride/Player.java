@@ -30,7 +30,13 @@ public class Player {
     public void addPoint(){
         
     }
-    public void draw(Type t){
+    public Card drawTrainCards(){
+        return null;
+    }
+    public Card drawDestinationCards(){
+        return null;
+    }
+    public void claimRoute(){
         
     }
 }
