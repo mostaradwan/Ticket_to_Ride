@@ -18,8 +18,6 @@ public class Board {
     Player p1;
     Player p2;
     
-    TakeTurn tt;
-    
     ArrayList<Card> river;
     //setsup the board and global variables
     Board(int numPlayers){
