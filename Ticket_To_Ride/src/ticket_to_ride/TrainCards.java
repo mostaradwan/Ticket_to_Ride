@@ -3,16 +3,16 @@
 import javax.swing.*;
 import java.awt.Image;
 
-
 public class TrainCards { 
     /*This is needed for the color imaging format of cards front and back 
     i will be working on this...to be contined 
+    this part below will be updated 
     */ 
-    //this part below will be updated 
+   
     private static final String IMAGE_FOLDER_DIR = " ";
     private static final String IMAGE_FORMAT = " ";
     private static final String BACK_IMAGE_DIR = (" ");
-    
+    //needed for both sides of the cards
     private Image cardImage;
     private Image backImage; 
     
@@ -47,13 +47,9 @@ public ChallengeEnum getChallenge() {
     return challenge;
 }
 
-
-
 public LevelEnum getLevel() {
     return level;
 }
-
-
 
 public Image getCard(){
     return cardImage;
@@ -62,18 +58,12 @@ public Image getCard(){
 private String generateCardLocation(){
 
     StringBuilder sb = new StringBuilder();
-
     sb.append(IMAGE_FOLDER_DIR);
     sb.append("/");
-
     sb.append(challenge.toString());
     sb.append("_");
     sb.append(level.toString());
-
     sb.append(IMAGE_FORMAT);
-
-
-
     return sb.toString().toLowerCase();
 
 }
@@ -100,8 +90,6 @@ public int compareTo(TrainCards traincards) {
         }
 
     }
-
-
 }
 
 @Override
