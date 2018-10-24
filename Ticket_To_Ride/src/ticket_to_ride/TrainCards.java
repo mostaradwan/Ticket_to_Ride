@@ -2,17 +2,12 @@
 //this is for the cards 
 import javax.swing.*;
 import java.awt.Image;
-
 public class TrainCards { 
-    /*This is needed for the color imaging format of cards front and back 
-    i will be working on this...to be contined 
-    this part below will be updated 
-    */ 
    
     private static final String IMAGE_FOLDER_DIR = " ";
     private static final String IMAGE_FORMAT = " ";
     private static final String BACK_IMAGE_DIR = (" ");
-    //needed for both sides of the cards
+    
     private Image cardImage;
     private Image backImage; 
     
@@ -21,7 +16,7 @@ public class TrainCards {
     public TrainCards (){
         
     } 
-    public TrainCards(ChallengeEnum suit, LevelEnum rank){
+    public TrainCards(ChallengeEnum challange, LevelEnum level){
     this.challenge = challenge;
     this.level = level;
 
@@ -31,14 +26,14 @@ public class TrainCards {
         cardImage = new Image(location) {};
 
     } catch (Exception ex) {
-        System.out.println(String.format("cannot load cards from: (%s)", location));        
+        System.out.println(String.format("unable load cards from: (%s)", location));        
         cardImage = null;
     }
 
     try {
         backImage = new Image(BACK_IMAGE_DIR) {};
     } catch (Exception ex){
-        System.out.println(String.format("cannot load cards from: (%s)", BACK_IMAGE_DIR));
+        System.out.println(String.format("unable load cards from: (%s)", BACK_IMAGE_DIR));
         backImage = null;
     }
 }
@@ -58,6 +53,7 @@ public Image getCard(){
 private String generateCardLocation(){
 
     StringBuilder sb = new StringBuilder();
+
     sb.append(IMAGE_FOLDER_DIR);
     sb.append("/");
     sb.append(challenge.toString());
@@ -111,6 +107,7 @@ public boolean equals(Object obj) {
         return false;
     TrainCards other = (TrainCards) obj; 
     return level == other.level && challenge == other.challenge;
+    
     }
 // I'm working on this because I need to it to print other side
 public Image getBackImage() {
