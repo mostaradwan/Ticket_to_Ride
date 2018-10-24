@@ -111,13 +111,6 @@ public boolean equals(Object obj) {
         return false;
     TrainCards other = (TrainCards) obj; 
     return level == other.level && challenge == other.challenge;
-    /*
-    if (level != other.level)
-        return false;
-    if (challenge != other.challenge)
-        return false;
-        return true; 
-            */
     }
 // I'm working on this because I need to it to print other side
 public Image getBackImage() {
