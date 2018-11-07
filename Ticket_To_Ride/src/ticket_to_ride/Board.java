@@ -34,12 +34,26 @@ public class Board {
     //draws the cards for the face up cards 
     //that players can choose from
     public void drawRiver(){
-        for(int x = 0; x<5; x++){
-            try{
-                river.add(trainDeck.draw());
-            }
-            catch(EmptyDeckException ed){
+        if(river.size() == 0){
+            
+            for(int x = 0; x<5; x++){
+                try{
+                    river.add(trainDeck.draw());
+                }
+                catch(EmptyDeckException ed){
                 
+                }
+            }
+        }
+        else
+        {
+            while(river.size() < 5){
+                try{
+                    river.add(trainDeck.draw());
+                }
+                catch(EmptyDeckException ed){
+                    
+                }
             }
         }
     }
