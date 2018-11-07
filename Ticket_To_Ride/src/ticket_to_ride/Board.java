@@ -12,21 +12,36 @@ import java.util.ArrayList;
  * @author Daniel
  */
 public class Board {
-    Deck trainDeck;
-    Deck destinationDeck;
+    DeckFunction trainDeck;
+    DeckFunction destinationDeck;
     
-    Player p1;
-    Player p2;
+    ArrayList<Player> players;
     
-    ArrayList<Card> river;
+    
+    ArrayList<TrainCards> river;
     //setsup the board and global variables
     Board(int numPlayers){
-        
+        players = new ArrayList<>();
+        for(int x = 0; x < numPlayers; x++){
+           Player pTemp = new Player(trainDeck,destinationDeck);
+           players.add(pTemp);
+        }
+        drawRiver();
     }
+    
+    
+    
     //draws the cards for the face up cards 
     //that players can choose from
     public void drawRiver(){
-        
+        for(int x = 0; x<5; x++){
+            try{
+                river.add(trainDeck.draw());
+            }
+            catch(EmptyDeckException ed){
+                
+            }
+        }
     }
     
 }
