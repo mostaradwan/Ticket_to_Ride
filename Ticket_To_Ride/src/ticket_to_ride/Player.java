@@ -14,26 +14,49 @@ import java.util.ArrayList;
 public class Player {
     int Score;
     int trainCount;
-    ArrayList<Card> trainHand;
-    ArrayList<Card> destinationHand;
-    Color col;
+    String name;
+    DeckFunction trainDeck;
+    DeckFunction destinationDeck;
+    ArrayList<TrainCards> trainHand;
+    ArrayList<TrainCards> destinationHand;
+    ColorEnum col;
     
+    Player(DeckFunction tDeck ,DeckFunction dDeck){
+        trainCount = 45;
+        Score = 1;
+        trainDeck = tDeck;
+        destinationDeck = dDeck;
+        trainHand = new ArrayList<>();
+        destinationHand = new ArrayList<>();
+        
+        for(int x = 0; x<4; x++){
+            try{
+                trainHand.add(trainDeck.draw());
+            }
+            catch(EmptyDeckException ed){
+                
+            }
+        }
+    }
     
-    Player(String name){
+    Player(String nameIn, DeckFunction tDeck ,DeckFunction dDeck){
+        trainCount = 45;
+        Score = 1;
+        name = nameIn;
         
     }
     
     public int getScore(){
-        return 0;
+        return Score;
     }
     
     public void addPoint(){
-        
+        Score++;
     }
-    public Card drawTrainCards(){
+    public TrainCards drawTrainCards(){
         return null;
     }
-    public Card drawDestinationCards(){
+    public TrainCards drawDestinationCards(){
         return null;
     }
     public void claimRoute(){
