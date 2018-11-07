@@ -66,11 +66,21 @@ public class Player {
     public void addPoint(){
         Score++;
     }
-    public TrainCards drawTrainCards(){
-        return null;
+    public void drawTrainCards(){
+        try{
+            trainHand.add(trainDeck.draw());
+        }
+        catch(EmptyDeckException ed){
+            
+        }
     }
-    public TrainCards drawDestinationCards(){
-        return null;
+    public void drawDestinationCards(){
+        try{
+            destinationHand.add(destinationDeck.draw());
+        }
+        catch(EmptyDeckException ed){
+            
+        }
     }
     public void claimRoute(){
         
