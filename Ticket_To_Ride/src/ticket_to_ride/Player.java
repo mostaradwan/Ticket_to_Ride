@@ -43,6 +43,19 @@ public class Player {
         trainCount = 45;
         Score = 1;
         name = nameIn;
+        trainDeck = tDeck;
+        destinationDeck = dDeck;
+        trainHand = new ArrayList<>();
+        destinationHand = new ArrayList<>();
+        
+        for(int x = 0; x<4; x++){
+            try{
+                trainHand.add(trainDeck.draw());
+            }
+            catch(EmptyDeckException ed){
+                
+            }
+        }
         
     }
     
