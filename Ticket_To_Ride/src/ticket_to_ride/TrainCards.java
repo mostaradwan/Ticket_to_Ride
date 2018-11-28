@@ -1,12 +1,12 @@
 //samk2020 
 //this is for the cards UPDATED
-public class TrainCards0 {
+public class TrainCards {
     
     private final String colours;
     private boolean isFlipped;
     private boolean isAlreadyTaken;
     
-    TrainCards0(String c){
+    TrainCards(String c){
         this.colours = c;
         isFlipped = false;
         isAlreadyTaken = false;
