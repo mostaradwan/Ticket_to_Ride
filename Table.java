@@ -27,6 +27,8 @@ public class Table extends Application {
     
     @Override
     public void start(Stage stage) {
+        
+        
         //Image image = new Image(Table.class.getResourceAsStream("0.jpg"));
  
          // simple displays ImageView the image as is
@@ -34,6 +36,25 @@ public class Table extends Application {
         //iv1.setImage(image);
         
         
+        //Setting up Background for Game
+        
+        Image image = new Image(Table.class.getResourceAsStream("0.jpg"));
+        Image srtup = new Image(Table.class.getResourceAsStream("Ticket_to_Ride_Main_Menu.jpg"));
+        Image opsm = new Image(Table.class.getResourceAsStream("ops_menu.jpg"));
+ 
+        
+        // Setting images to ImageView
+        
+        ImageView Mainmenu = new ImageView();
+        ImageView map = new ImageView();
+        ImageView opss = new ImageView();
+        
+        Mainmenu.setImage(srtup);
+        map.setImage(image);
+        opss.setImage(opsm);
+        
+        
+        //Destination Buttons
         
         Button sf = new Button(); // SAN FRANCISCO
         Button la = new Button(); //LOS ANGELES
@@ -73,8 +94,25 @@ public class Table extends Application {
         Button ml = new Button(); //MONTREAL
         
         
+        //Game Buttons
+        
         Button DrawT = new Button();
         Button DrawD = new Button();
+        
+        
+        //Game Menu Buttons
+        
+        Button Startbutton = new Button(); //Start button for the game
+        Button Options = new Button(); //Options Button
+        Button QuitGame = new Button(); //Quit Button for the game
+        Button ReturnG = new Button(); //
+        
+        //Game Menu Texts
+        Startbutton.setText("Start Game"); //Start game Button
+        QuitGame.setText("Quit");
+        Options.setText("Options");
+        ReturnG.setText("Return to Game");
+        
         
         sf.setText("SF"); //SAN FRANCISCO
         la.setText("LA"); //LOS ANGELES
@@ -112,8 +150,77 @@ public class Table extends Application {
         ny.setText("NY"); //NEW YORK
         b.setText("B"); //BOSTON
         ml.setText("ML"); //MONTREAL
-        DrawT.setText("DrawT");
-        DrawD.setText("DrawD");
+        
+        DrawT.setText("DrawT"); //Draw a Train Card
+        DrawD.setText("DrawD"); //Draw a Destination Card
+        
+        Startbutton.setOnAction(new EventHandler<ActionEvent>() {
+            
+            @Override
+            public void handle(ActionEvent event) {
+                
+                        Pane root = new Pane();
+                        root.getChildren().addAll(map,sf,la,lv,slc,pl,s,v,c,p,h,ep,sa,d,w,ok,da,ho,kc,o,du,no
+                ,lr,sl,ch,sm,a,n,ps,t,m,chn,r,wn,ny,b,ml,DrawD,DrawT,Options);
+                        Scene scene = new Scene(root,1000, 780);
+       
+                        stage.setTitle("Ticket to Ride");
+                        stage.setWidth(500);
+                        stage.setHeight(200);
+                        stage.setScene(scene); 
+                        stage.sizeToScene(); 
+                        stage.show();
+            }
+            
+            //starting the game into the main screen
+        });
+        
+        Options.setOnAction(new EventHandler<ActionEvent>() {
+            
+            @Override
+            public void handle(ActionEvent event) {
+                
+                        //Quit Game Button
+                        QuitGame.setLayoutX(200);
+                        QuitGame.setLayoutY(50);
+                        
+                        //Return to Game Button
+                        ReturnG.setLayoutX(20);
+                        ReturnG.setLayoutY(20);
+                
+                        Pane opsscene = new Pane();
+                        opsscene.getChildren().addAll(opss,ReturnG,QuitGame);
+                        Scene ops = new Scene(opsscene,1000, 780);
+       
+                        stage.setTitle("Ticket to Ride: Options");
+                        stage.setWidth(500);
+                        stage.setHeight(200);
+                        stage.setScene(ops); 
+                        stage.sizeToScene(); 
+                        stage.showAndWait();
+                
+            }
+        });
+        
+        QuitGame.setOnAction(new EventHandler<ActionEvent>() {
+            
+            @Override
+            public void handle(ActionEvent event) {
+                stage.close();
+                
+            }
+            
+            //To end the game and close it
+        });
+        
+        ReturnG.setOnAction(new EventHandler<ActionEvent>() {
+            
+            @Override
+            public void handle(ActionEvent event) {
+                //Startbutton.
+                
+            }
+        });
         
         sf.setOnAction(new EventHandler<ActionEvent>() {
             
@@ -125,16 +232,8 @@ public class Table extends Application {
         });
         
         
-        
-        Image image = new Image(Table.class.getResourceAsStream("0.jpg"));
- 
-         // simple displays ImageView the image as is
-        ImageView map = new ImageView();
-        map.setImage(image);
-        
-        Pane root = new Pane();
-        root.getChildren().addAll(map,sf,la,lv,slc,pl,s,v,c,p,h,ep,sa,d,w,ok,da,ho,kc,o,du,no
-                ,lr,sl,ch,sm,a,n,ps,t,m,chn,r,wn,ny,b,ml,DrawD,DrawT);
+        Pane mm = new Pane();
+        mm.getChildren().addAll(Mainmenu,Startbutton,QuitGame);
         
         //San Fransisco
         sf.setLayoutX(15);  //Location
@@ -288,6 +387,18 @@ public class Table extends Application {
         DrawD.setLayoutX(900); //Location
         DrawD.setLayoutY(25);
         
+        //Start Up Button
+        Startbutton.setLayoutX(200);
+        Startbutton.setLayoutY(200);
+        
+        //Quit Game Button
+        QuitGame.setLayoutX(220);
+        QuitGame.setLayoutY(260);
+        
+        //Options Menu Button
+        Options.setLayoutX(10);
+        Options.setLayoutY(25);
+        
         
         //Scene btn = new Scene(root, 300, 250);
         //Scene map = new Scene(box, 300, 250);
@@ -298,12 +409,12 @@ public class Table extends Application {
         primaryStage.show();
         */
 
-        Scene scene = new Scene(root,1000, 780);
+        Scene srt = new Scene(mm,500, 500);
        
-        stage.setTitle("Ticket to Ride");
+        stage.setTitle("Ticket to Ride: Start Screen");
         stage.setWidth(500);
         stage.setHeight(200);
-        stage.setScene(scene); 
+        stage.setScene(srt); 
         stage.sizeToScene(); 
         stage.show(); 
     }
