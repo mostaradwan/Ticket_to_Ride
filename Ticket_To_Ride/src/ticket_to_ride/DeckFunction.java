@@ -11,9 +11,9 @@ public class DeckFunction {
     public DeckFunction(){
 
         for (ColorEnum colour: ColorEnum.values()){
-            for (LevelEnum levelEnum : LevelEnum.values()){
-                LevelEnum level = null;
-                DestEnum destination = null;
+            for (ColorEnum colorEnum : ColorEnum.values()){
+                ColorEnum level = null;
+                LocationEnum destination = null;
                 deck.add(new TrainCards(colour, level, destination));
             }
         }
