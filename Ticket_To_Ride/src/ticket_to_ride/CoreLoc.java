@@ -17,10 +17,10 @@ public class CoreLoc
     private Random destinationCardsRandomShuffler;
 
     private List<ColorEnum> trainCardsList;
-    private List<DestEnum> destinationCardsList;
+    private List<LocationEnum> destinationCardsList;
 
     private ColorEnum[] trainCardsArray;
-    private DestEnum[] destinationCardsArray;
+    private LocationEnum[] destinationCardsArray;
 
     
     public CoreLoc()
@@ -29,7 +29,7 @@ public class CoreLoc
         destinationCardsList = new ArrayList<>();
 
         trainCardsArray = new ColorEnum[TRAINCARDS_LIMIT];
-        destinationCardsArray = new DestEnum[DESTINATIONCARDS_LIMIT];
+        destinationCardsArray = new LocationEnum[DESTINATION_CARDS_LIMIT];
 
         trainCardsRandomShuffler = new Random();
         destinationCardsRandomShuffler = new Random();
@@ -58,18 +58,16 @@ public class CoreLoc
     public DestEnum getNextDestinationCard() throws NullPointerException
     {
         if (destinationCardsList.isEmpty()) throw new NullPointerException();
-
         return destinationCardsList.remove(0);
     }
 
     public List<ColorEnum> getTrainCardsList() { return trainCardsList; }
 
-    public List<DestEnum> getDestinationCardsList() { return destinationCardsList; }
+    public List<LocationEnum> getDestinationCardsList() { return destinationCardsList; }
 
     public void addTrainCardToBottom(ColorEnum trainCard) throws NullPointerException
     {
         if (this.trainCardsList.size() >= TRAINCARDS_LIMIT) throw new NullPointerException();
-
         trainCardsList.add(trainCard);
     }
 
@@ -77,20 +75,18 @@ public class CoreLoc
     public void addTrainCardToTop(ColorEnum trainCard) throws NullPointerException
     {
         if (this.trainCardsList.size() >= TRAINCARDS_LIMIT) throw new NullPointerException();
-
         trainCardsList.add(0, trainCard);
     }
 
-    public void addDestinationCardToBottom(DestEnum destinationCard) throws NullPointerException
+    public void addDestinationCardToBottom(LocationEnum destinationCard) throws NullPointerException
     {
-        if (this.destinationCardsList.size() >= DESTINATIONCARDS_LIMIT) throw new NullPointerException();
-
+        if (this.destinationCardsList.size() >= DESTINATION_CARDS_LIMIT) throw new NullPointerException();
         destinationCardsList.add(destinationCard);
     }
 
-    public void addDestinationCardToTop(DestEnum destinationCard) throws NullPointerException
+    public void addDestinationCardToTop(LocationEnum destinationCard) throws NullPointerException
     {
-        if (this.destinationCardsList.size() >= DESTINATIONCARDS_LIMIT) throw new NullPointerException();
+        if (this.destinationCardsList.size() >= DESTINATION_CARDS_LIMIT) throw new NullPointerException();
 
         destinationCardsList.add(0, destinationCard);
     }
@@ -107,36 +103,36 @@ public class CoreLoc
         Arrays.fill(trainCardsArray, 84, 96, ColorEnum.GREEN);
         Arrays.fill(trainCardsArray, 96, 110, ColorEnum.WILDCARD); 
 
-        destinationCardsArray[0] = new DestEnum(LocationEnum.DENVER, LocationEnum.EL_PASO, 4);
-        destinationCardsArray[1] = new DestEnum(LocationEnum.KANSAS_CITY, LocationEnum.HOUSTON, 5);
-        destinationCardsArray[2] = new DestEnum(LocationEnum.NEW_YORK, LocationEnum.ATLANTA, 6);
-        destinationCardsArray[3] = new DestEnum(LocationEnum.CHICAGO, LocationEnum.NEW_ORLEANS, 7);
-        destinationCardsArray[4] = new DestEnum(LocationEnum.CALGARY, LocationEnum.SALT_LAKE_CITY, 7);
-        destinationCardsArray[5] = new DestEnum(LocationEnum.HELENA, LocationEnum.LOS_ANGELES, 8);
-        destinationCardsArray[6] = new DestEnum(LocationEnum.DULUTH, LocationEnum.HOUSTON, 8);
-        destinationCardsArray[7] = new DestEnum(LocationEnum.SAULT_ST_MARIE, LocationEnum.NASHVILLE, 8);
-        destinationCardsArray[8] = new DestEnum(LocationEnum.MONTREAL, LocationEnum.ATLANTA, 9);
-        destinationCardsArray[9] = new DestEnum(LocationEnum.SAULT_ST_MARIE, LocationEnum.OKLAHOMA_CITY, 9);
-        destinationCardsArray[10] = new DestEnum(LocationEnum.SEATTLE, LocationEnum.LOS_ANGELES, 9);
-        destinationCardsArray[11] = new DestEnum(LocationEnum.CHICAGO, LocationEnum.SANTA_FE, 9);
-        destinationCardsArray[12] = new DestEnum(LocationEnum.DULUTH, LocationEnum.EL_PASO, 10);
-        destinationCardsArray[13] = new DestEnum(LocationEnum.TORONTO, LocationEnum.MIAMI, 10);
-        destinationCardsArray[14] = new DestEnum(LocationEnum.PORTLAND, LocationEnum.PHOENIX, 11);
-        destinationCardsArray[15] = new DestEnum(LocationEnum.DALLAS, LocationEnum.NEW_YORK, 11);
-        destinationCardsArray[16] = new DestEnum(LocationEnum.DENVER, LocationEnum.PITTSBURG, 11);
-        destinationCardsArray[17] = new DestEnum(LocationEnum.WINNIPEG, LocationEnum.LITTLE_ROCK, 11);
-        destinationCardsArray[18] = new DestEnum(LocationEnum.WINNIPEG, LocationEnum.HOUSTON, 12);
-        destinationCardsArray[19] = new DestEnum(LocationEnum.BOSTON, LocationEnum.MIAMI, 12);
-        destinationCardsArray[20] = new DestEnum(LocationEnum.VANCOUVER, LocationEnum.SANTA_FE, 13);
-        destinationCardsArray[21] = new DestEnum(LocationEnum.CALGARY, LocationEnum.PHOENIX, 13);
-        destinationCardsArray[22] = new DestEnum(LocationEnum.MONTREAL, LocationEnum.NEW_ORLEANS, 13);
-        destinationCardsArray[23] = new DestEnum(LocationEnum.LOS_ANGELES, LocationEnum.CHICAGO, 16);
-        destinationCardsArray[24] = new DestEnum(LocationEnum.SAN_FRANCISCO, LocationEnum.ATLANTA, 17);
-        destinationCardsArray[25] = new DestEnum(LocationEnum.PORTLAND, LocationEnum.NASHVILLE, 17);
-        destinationCardsArray[26] = new DestEnum(LocationEnum.VANCOUVER, LocationEnum.MONTREAL, 20);
-        destinationCardsArray[27] = new DestEnum(LocationEnum.LOS_ANGELES, LocationEnum.MIAMI, 20);
-        destinationCardsArray[28] = new DestEnum(LocationEnum.LOS_ANGELES, LocationEnum.NEW_YORK, 21);
-        destinationCardsArray[29] = new DestEnum(LocationEnum.SEATTLE, LocationEnum.NEW_YORK, 22);
+        destinationCardsArray[0] = new LocationPoint(LocationEnum.DENVER, LocationEnum.EL_PASO, 4);
+        destinationCardsArray[1] = new LocationPoint(LocationEnum.KANSAS_CITY, LocationEnum.HOUSTON, 5);
+        destinationCardsArray[2] = new LocationPoint(LocationEnum.NEW_YORK, LocationEnum.ATLANTA, 6);
+        destinationCardsArray[3] = new LocationPoint(LocationEnum.CHICAGO, LocationEnum.NEW_ORLEANS, 7);
+        destinationCardsArray[4] = new LocationPoint(LocationEnum.CALGARY, LocationEnum.SALT_LAKE_CITY, 7);
+        destinationCardsArray[5] = new LocationPoint(LocationEnum.HELENA, LocationEnum.LOS_ANGELES, 8);
+        destinationCardsArray[6] = new LocationPoint(LocationEnum.DULUTH, LocationEnum.HOUSTON, 8);
+        destinationCardsArray[7] = new LocationPoint(LocationEnum.SAULT_ST_MARIE, LocationEnum.NASHVILLE, 8);
+        destinationCardsArray[8] = new LocationPoint(LocationEnum.MONTREAL, LocationEnum.ATLANTA, 9);
+        destinationCardsArray[9] = new LocationPoint(LocationEnum.SAULT_ST_MARIE, LocationEnum.OKLAHOMA_CITY, 9);
+        destinationCardsArray[10] = new LocationPoint(LocationEnum.SEATTLE, LocationEnum.LOS_ANGELES, 9);
+        destinationCardsArray[11] = new LocationPoint(LocationEnum.CHICAGO, LocationEnum.SANTA_FE, 9);
+        destinationCardsArray[12] = new LocationPoint(LocationEnum.DULUTH, LocationEnum.EL_PASO, 10);
+        destinationCardsArray[13] = new LocationPoint(LocationEnum.TORONTO, LocationEnum.MIAMI, 10);
+        destinationCardsArray[14] = new LcationPoint(LocationEnum.PORTLAND, LocationEnum.PHOENIX, 11);
+        destinationCardsArray[15] = new LocationPoint(LocationEnum.DALLAS, LocationEnum.NEW_YORK, 11);
+        destinationCardsArray[16] = new LocationPoint(LocationEnum.DENVER, LocationEnum.PITTSBURG, 11);
+        destinationCardsArray[17] = new LocationPoint(LocationEnum.WINNIPEG, LocationEnum.LITTLE_ROCK, 11);
+        destinationCardsArray[18] = new LocationPoint(LocationEnum.WINNIPEG, LocationEnum.HOUSTON, 12);
+        destinationCardsArray[19] = new LocationPoint(LocationEnum.BOSTON, LocationEnum.MIAMI, 12);
+        destinationCardsArray[20] = new LocationPoint(LocationEnum.VANCOUVER, LocationEnum.SANTA_FE, 13);
+        destinationCardsArray[21] = new LocationPoint(LocationEnum.CALGARY, LocationEnum.PHOENIX, 13);
+        destinationCardsArray[22] = new LocationPoint(LocationEnum.MONTREAL, LocationEnum.NEW_ORLEANS, 13);
+        destinationCardsArray[23] = new LocationPoint(LocationEnum.LOS_ANGELES, LocationEnum.CHICAGO, 16);
+        destinationCardsArray[24] = new LocationPoint(LocationEnum.SAN_FRANCISCO, LocationEnum.ATLANTA, 17);
+        destinationCardsArray[25] = new LocationPoint(LocationEnum.PORTLAND, LocationEnum.NASHVILLE, 17);
+        destinationCardsArray[26] = new LocationPoint(LocationEnum.VANCOUVER, LocationEnum.MONTREAL, 20);
+        destinationCardsArray[27] = new LocationPoint(LocationEnum.LOS_ANGELES, LocationEnum.MIAMI, 20);
+        destinationCardsArray[28] = new LocationPoint(LocationEnum.LOS_ANGELES, LocationEnum.NEW_YORK, 21);
+        destinationCardsArray[29] = new LocationPoint(LocationEnum.SEATTLE, LocationEnum.NEW_YORK, 22);
 
         Collections.addAll(trainCardsList, trainCardsArray);
         Collections.addAll(destinationCardsList, destinationCardsArray);
