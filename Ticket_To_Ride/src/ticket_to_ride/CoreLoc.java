@@ -11,7 +11,7 @@ public class CoreLoc
     public static final int TRAINCARDS_LIMIT = 110;
     public static final int COLORED_TRAINCARDS_LIMIT = 12;
     public static final int WILDCARD_TRAINCARDS_LIMIT = 14;
-    public static final int DESTINATIONCARDS_LIMIT = 30;
+    public static final int DESTINATION_CARDS_LIMIT = 30;
 
     private Random trainCardsRandomShuffler;
     private Random destinationCardsRandomShuffler;
