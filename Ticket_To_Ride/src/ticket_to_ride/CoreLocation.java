@@ -44,32 +44,29 @@ public class CoreLocation
     }
     
     public Random getTrainCardsShuffler() { return trainCardsShuffler; }
-
     public Random getDestinationCardsShuffler() { return destinationCardsShuffler; }
-
-    
     public ColorEnum getNewTrainCard() throws NullPointerException
     {
         if (trainCardsList.isEmpty()) throw new NullPointerException();
-
         return trainCardsList.remove(0);
     }
 
     public LocationEnum getNewDestinationCard() throws NullPointerException
     {
         if (destinationCardsList.isEmpty()) throw new NullPointerException();
-
         return destinationCardsList.remove(0);
     }
 
-    public List<ColorEnum> getTrainCardsList() { return trainCardsList; }
-
-    public List<LocationEnum> getDestinationCardsList() { return destinationCardsList; }
+    public List<ColorEnum> getTrainCardsList() { 
+        return trainCardsList; 
+    }
+    public List<LocationEnum> getDestinationCardsList() { 
+        return destinationCardsList; 
+    }
 
     public void addTrainCardToBottom(ColorEnum trainCard) throws NullPointerException
     {
         if (this.trainCardsList.size() >= TRAINCARDS_LIMIT) throw new NullPointerException();
-
         trainCardsList.add(trainCard);
     }
 
@@ -77,21 +74,18 @@ public class CoreLocation
     public void addTrainCardToTop(ColorEnum trainCard) throws NullPointerException
     {
         if (this.trainCardsList.size() >= TRAINCARDS_LIMIT) throw new NullPointerException();
-
         trainCardsList.add(0, trainCard);
     }
 
     public void addDestinationCardToBottom(LocationEnum destinationCard) throws NullPointerException
     {
         if (this.destinationCardsList.size() >= DESTINATION_CARDS_LIMIT) throw new NullPointerException();
-
         destinationCardsList.add(destinationCard);
     }
 
     public void addDestinationCardToTop(LocationEnum destinationCard) throws NullPointerException
     {
         if (this.destinationCardsList.size() >= DESTINATION_CARDS_LIMIT) throw new NullPointerException();
-
         destinationCardsList.add(0, destinationCard);
     }
 
