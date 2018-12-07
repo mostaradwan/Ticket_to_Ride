@@ -1,11 +1,11 @@
-
+//renamed from coreloc to core location
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-public class CoreLoc
+public class CoreLocation
 {
     public static final int SHUFFLE_MULTIPLIER = 2;
     public static final int TRAINCARDS_LIMIT = 110;
@@ -13,8 +13,8 @@ public class CoreLoc
     public static final int WILDCARD_TRAINCARDS_LIMIT = 14;
     public static final int DESTINATION_CARDS_LIMIT = 30;
 
-    private Random trainCardsRandomShuffler;
-    private Random destinationCardsRandomShuffler;
+    private Random trainCardsShuffler;
+    private Random destinationCardsShuffler;
 
     private List<ColorEnum> trainCardsList;
     private List<LocationEnum> destinationCardsList;
@@ -23,7 +23,7 @@ public class CoreLoc
     private LocationEnum[] destinationCardsArray;
 
     
-    public CoreLoc()
+    public CoreLocation()
     {
         trainCardsList = new ArrayList<>();
         destinationCardsList = new ArrayList<>();
@@ -31,33 +31,34 @@ public class CoreLoc
         trainCardsArray = new ColorEnum[TRAINCARDS_LIMIT];
         destinationCardsArray = new LocationEnum[DESTINATION_CARDS_LIMIT];
 
-        trainCardsRandomShuffler = new Random();
-        destinationCardsRandomShuffler = new Random();
+        trainCardsShuffler = new Random();
+        destinationCardsShuffler = new Random();
 
         createAndFillArraysToList();
 
         for (int i = 0; i < SHUFFLE_MULTIPLIER; ++i)
         {
-            Collections.shuffle(trainCardsList, trainCardsRandomShuffler);
-            Collections.shuffle(destinationCardsList, destinationCardsRandomShuffler);
+            Collections.shuffle(trainCardsList, trainCardsShuffler);
+            Collections.shuffle(destinationCardsList, destinationCardsShuffler);
         }
     }
     
-    public Random getTrainCardsRandomShuffler() { return trainCardsRandomShuffler; }
+    public Random getTrainCardsShuffler() { return trainCardsShuffler; }
 
-    public Random getDestinationCardsRandomShuffler() { return destinationCardsRandomShuffler; }
+    public Random getDestinationCardsShuffler() { return destinationCardsShuffler; }
 
     
-    public ColorEnum getNextTrainCard() throws NullPointerException
+    public ColorEnum getNewTrainCard() throws NullPointerException
     {
         if (trainCardsList.isEmpty()) throw new NullPointerException();
 
         return trainCardsList.remove(0);
     }
 
-    public DestEnum getNextDestinationCard() throws NullPointerException
+    public LocationEnum getNewDestinationCard() throws NullPointerException
     {
         if (destinationCardsList.isEmpty()) throw new NullPointerException();
+
         return destinationCardsList.remove(0);
     }
 
@@ -68,6 +69,7 @@ public class CoreLoc
     public void addTrainCardToBottom(ColorEnum trainCard) throws NullPointerException
     {
         if (this.trainCardsList.size() >= TRAINCARDS_LIMIT) throw new NullPointerException();
+
         trainCardsList.add(trainCard);
     }
 
@@ -75,12 +77,14 @@ public class CoreLoc
     public void addTrainCardToTop(ColorEnum trainCard) throws NullPointerException
     {
         if (this.trainCardsList.size() >= TRAINCARDS_LIMIT) throw new NullPointerException();
+
         trainCardsList.add(0, trainCard);
     }
 
     public void addDestinationCardToBottom(LocationEnum destinationCard) throws NullPointerException
     {
         if (this.destinationCardsList.size() >= DESTINATION_CARDS_LIMIT) throw new NullPointerException();
+
         destinationCardsList.add(destinationCard);
     }
 
@@ -117,7 +121,7 @@ public class CoreLoc
         destinationCardsArray[11] = new LocationPoint(LocationEnum.CHICAGO, LocationEnum.SANTA_FE, 9);
         destinationCardsArray[12] = new LocationPoint(LocationEnum.DULUTH, LocationEnum.EL_PASO, 10);
         destinationCardsArray[13] = new LocationPoint(LocationEnum.TORONTO, LocationEnum.MIAMI, 10);
-        destinationCardsArray[14] = new LcationPoint(LocationEnum.PORTLAND, LocationEnum.PHOENIX, 11);
+        destinationCardsArray[14] = new LocationPoint(LocationEnum.PORTLAND, LocationEnum.PHOENIX, 11);
         destinationCardsArray[15] = new LocationPoint(LocationEnum.DALLAS, LocationEnum.NEW_YORK, 11);
         destinationCardsArray[16] = new LocationPoint(LocationEnum.DENVER, LocationEnum.PITTSBURG, 11);
         destinationCardsArray[17] = new LocationPoint(LocationEnum.WINNIPEG, LocationEnum.LITTLE_ROCK, 11);
