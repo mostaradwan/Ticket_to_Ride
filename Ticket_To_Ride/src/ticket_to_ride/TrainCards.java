@@ -2,12 +2,12 @@
 //this is for the cards UPDATED
 public class TrainCards {
     
-    private final String colours;
+    private final String colors;
     private boolean isFlipped;
     private boolean isAlreadyTaken;
     
     TrainCards(String c){
-        this.colours = c;
+        this.colors = c;
         isFlipped = false;
         isAlreadyTaken = false;
     }
@@ -20,8 +20,8 @@ public class TrainCards {
         this.isAlreadyTaken = ATC;
     }
     
-    public String getColours(){
-        return colours;
+    public String getColors(){
+        return colors;
     }
     
     public boolean isIsFlipped(){
@@ -34,6 +34,6 @@ public class TrainCards {
     
     @Override
     public String toString(){
-        return this.colours;
+        return this.colors;
     }
 }
