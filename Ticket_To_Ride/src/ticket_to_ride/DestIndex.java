@@ -5,32 +5,32 @@ ColorEnum is solely for route color to its respective coordination
 */
 public class DestIndex
 {
-    private LocationPoint source;
+    private LocationPoint origin;
     private LocationPoint destination;
     private int score;  
     private static int numberOfDestinationCards = 0;
     private static int scoreOfAllCards = 0;
 
-    public DestIndex(LocationPoint source, LocationPoint destination, int score)
+    public DestIndex(LocationPoint origin, LocationPoint destination, int score)
     {
-        this.source = source;
+        this.origin = origin;
         this.destination = destination;
         this.score = score;
 
         ++numberOfDestinationCards;
         scoreOfAllCards += score;
     }
- // Right here i need to simply merge various data points of strings to easily route two locations
+ // Right here i'm simply merging(concat) various data points of strings to easily describe route of two locations
     @Override
     public String toString()
     {
-        return (this.source.toString() + " " + this.destination.toString() + " " + Integer.toString(this.score));
+        return (this.origin.toString() + " " + this.destination.toString() + " " + Integer.toString(this.score));
     }
 
-    public LocationPoint getSource() throws NullPointerException
+    public LocationPoint getOrigin() throws NullPointerException
     {
-        if (this.source == null) throw new NullPointerException();
-        return source;
+        if (this.origin == null) throw new NullPointerException();
+        return origin;
     }
 
     public LocationPoint getDestination() throws NullPointerException
@@ -39,7 +39,6 @@ public class DestIndex
         return destination;
     }
 
-    @SuppressWarnings("BadRouting")
     public int getScore() { 
         return score; 
     }
@@ -49,8 +48,8 @@ public class DestIndex
     public static int getScoreOfAllCards() { 
         return scoreOfAllCards; 
     }
-    public void setSource(LocationPoint source) { 
-        this.source = source;
+    public void setOrigin(LocationPoint origin) { 
+        this.origin = origin;
     }
     public void setDestination(LocationPoint destination) { 
         this.destination= destination; 
