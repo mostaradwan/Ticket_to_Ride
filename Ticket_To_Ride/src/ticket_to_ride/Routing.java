@@ -50,7 +50,9 @@ public class Routing {
             if(this.numberOfLocationPoints > 0){
                 throw new UnsupportedOperationException(); 
             }
-            
+            // instantiating routes from origin to final destination and units/colors in this format
+            // its important to note that wildcards are called wildcards based on colorenum file
+            // and units for numbering based on the card format
             this.DeclarableLocationPoint(LocationEnum.VANCOUVER, LocationEnum.CALGARY, ColorEnum.WILDCARD, 3); 
             this.DeclarableLocationPoint(LocationEnum.VANCOUVER, LocationEnum.SEATTLE, ColorEnum.WILDCARD, 1);
             this.DeclarableLocationPoint(LocationEnum.VANCOUVER, LocationEnum.SEATTLE, ColorEnum.WILDCARD, 1);        
@@ -151,7 +153,8 @@ public class Routing {
             this.addUndirectedLocationPoint(LocationEnum.HELENA, LocationEnum.CALGARY, ColorEnum.WILDCARD, 4); 
             this.addUndirectedLocationPoint(LocationEnum.CALGARY, LocationEnum.WINNIPEG, ColorEnum.WHITE, 6); 
         } 
-        
+        // this part is needed for printing details of the route to player when picking the cards
+        // along with the mileage or space of the game that reflects onto the board...
         public void printRoute(){
             String originString;
             String destinationString;
