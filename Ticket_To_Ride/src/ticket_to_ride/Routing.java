@@ -3,7 +3,49 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Routing {
+public class Routing { 
+    
+    private ColorEnum ColorEnum;
+	private int routeLength;
+	private LocationEnum origin;
+	private LocationEnum destination;
+        
+	public ColorEnum getColorEnum() {
+		return ColorEnum;
+	}
+
+	public void seColorEnum(ColorEnum ColorEnum) {
+		this.ColorEnum = ColorEnum;
+	}
+
+	public int getRouteLength() {
+		return routeLength;
+	}
+
+	public void setRouteLength(int routeLength) {
+		this.routeLength = routeLength;
+	}
+
+	public LocationEnum getOrigin() {
+		return origin;
+	}
+
+	public void setOrigin(LocationEnum origin) {
+		this.origin = origin;
+	}
+
+	public LocationEnum getDestination() {
+		return destination;
+	}
+
+	public void setDestination(LocationEnum destination) {
+		this.destination = destination;
+	}
+
+} 
+
+/// my original implementation but disregard this super expansive and hard code below
+    /*
     private int points;
     private List<LocationPoint>[]nearestList;
     private int numberOfLocationPoints = 0;
@@ -41,10 +83,7 @@ public class Routing {
         }
        // return returnString;
         
-    /**
-     *
-     * @throws IOException
-     */
+   
     public void Board() throws IOException
     {
             if(this.numberOfLocationPoints > 0){
@@ -182,6 +221,6 @@ public class Routing {
     
     }
 
-   
+   */
 
 
